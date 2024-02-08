@@ -1,0 +1,2 @@
+# PyCalq
+Calculadora em Python
