@@ -56,7 +56,6 @@ def fim():
 
 def c():
     global r, text_1
-    r = ''
     canvas.delete(text_1)
     o = False
     n1 = 0
