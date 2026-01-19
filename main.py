@@ -14,6 +14,7 @@ n1 = ''
 n2 = ''
 op = '+'
 text_1 = ''
+text = ''
 
 # Função para realizar cálculos
 def calq():
@@ -49,34 +50,46 @@ def calq():
 
 # Função para atualizar o valor do número
 def number(t):
-    global o, n1, n2, text_1
+    global o, n1, n2, text_1, text
     w = str(t)
     if not o:
         n1 = n1 + w
     else:
         n2 = n2 + w
+    text += w
     canvas.delete(text_1)
     text_1 = canvas.create_text(
         20.0,
         30.0,
         anchor="nw",
-        text=t,
+        text=text,
         fill="#FFFFFF",
         font=("JetBrainsMono-Regular", 15 * -1)
     )
 
 # Função para atualizar a operação
 def operacao(t):
-    global o, op
+    global o, op, text, text_1
     o = True
     op = t
+    text += t
+    canvas.delete(text_1)
+    text_1 = canvas.create_text(
+        20.0,
+        30.0,
+        anchor="nw",
+        text=text,
+        fill="#FFFFFF",
+        font=("JetBrainsMono-Regular", 15 * -1)
+    )
 
 # Função para finalizar o cálculo
 def fim():
     calq()
 
 def c():
-    global o, n1, n2, op, text_1
+    global o, n1, n2, op, text_1, text
+    text = ''
     canvas.delete(text_1)
     o = False
     n1 = ''
